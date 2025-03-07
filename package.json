@@ -1,0 +1,19 @@
+{
+	"name": "geomath",
+	"version": "0.0.1",
+	"exports": "./src/index.ts",
+	"module": "src/index.ts",
+	"type": "module",
+	"scripts": {
+		"lint": "biome lint .",
+		"fmt": "biome format --write .",
+		"check": "tsc --noEmit"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	}
+}
