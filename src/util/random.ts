@@ -10,12 +10,16 @@ import {
 } from "..";
 import { earthRadius } from ".";
 
-function randomVectorInCone(z: Vector3, angle: number): Vector3 {
+function randomVectorInCone(
+	z: Vector3,
+	minAngle: number,
+	maxAngle: number,
+): Vector3 {
 	const axis = z.z > 0.9 ? { x: 1, y: 0, z: 0 } : { x: 0, y: 0, z: 1 };
 	const x = norm(cross(z, axis));
 	const y = norm(cross(z, x));
 
-	const theta = Math.random() * angle;
+	const theta = Math.random() * (maxAngle - minAngle) + minAngle;
 	const phi = Math.random() * Math.PI * 2;
 
 	const zPart = mul(z, Math.cos(theta));
@@ -29,7 +33,16 @@ function randomVectorInCone(z: Vector3, angle: number): Vector3 {
  * Returns random point on earth's surface in given radius.
  * Radius is measured in meters.
  */
-export function randomPointInRadius(center: Coord, r: number): Coord {
-	const angle = r / earthRadius;
-	return vec2coord(randomVectorInCone(coord2vec(center), angle));
+export function randomPointInRadius(
+	center: Coord,
+	minR: number,
+	maxR: number,
+): Coord {
+	return vec2coord(
+		randomVectorInCone(
+			coord2vec(center),
+			minR / earthRadius,
+			maxR / earthRadius,
+		),
+	);
 }
