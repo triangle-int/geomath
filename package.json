@@ -1,19 +1,22 @@
 {
 	"name": "geomath",
-	"version": "0.0.1",
-	"exports": "./src/index.ts",
-	"module": "src/index.ts",
+	"version": "0.1.0",
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
 	"type": "module",
 	"scripts": {
+		"build": "tsup",
 		"lint": "biome lint .",
 		"fmt": "biome format --write .",
-		"check": "tsc --noEmit"
+		"check": "tsc --noEmit",
+		"test": "vitest"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
-		"@types/bun": "latest"
-	},
-	"peerDependencies": {
-		"typescript": "^5"
+		"ts-node": "^10.9.2",
+		"tsup": "^8.4.0",
+		"typescript": "^5.8.2",
+		"vitest": "^3.0.8"
 	}
 }

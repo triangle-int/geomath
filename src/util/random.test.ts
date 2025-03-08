@@ -1,5 +1,5 @@
-import { describe, test, expect } from "bun:test";
 import { distance, earthRadius, randomPointInRadius } from ".";
+import { describe, test, expect } from "vitest";
 
 describe("random coords generation", () => {
 	test("should generate point in radius", () => {
