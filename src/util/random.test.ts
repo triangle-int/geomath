@@ -8,7 +8,7 @@ describe("random coords generation", () => {
 				lat: Math.random() * 180 - 90,
 				lng: Math.random() * 360 - 180,
 			};
-			const maxRadius = Math.random() * Math.PI * 2 * earthRadius;
+			const maxRadius = Math.random() * Math.PI * earthRadius;
 			const minRadius = Math.random() * maxRadius;
 
 			const point = randomPointInRadius(coord, minRadius, maxRadius);
